@@ -10,6 +10,7 @@ namespace BackgammonProject2
 {
     class Board
     {
+        bool isThereMoveTo = false;
         bool isDoubleTurn = false;
         int doubleTurnCount = 0;
         int dice1 = 0, dice2 = 0;
@@ -326,14 +327,15 @@ namespace BackgammonProject2
             if (isDoubleTurn == false)
             {
                 if (dice1 == -1 && dice2 == -1)
-                    frm.sendFinishMove("-");
+                    frm.sendFinishMove("~" + Form1.UserName);
             }
             else
             {
                 if (doubleTurnCount == 4)
                 {
-                    //doubleTurnCount = 0;
-                    frm.sendFinishMove("-");
+                    isDoubleTurn = false;
+                    doubleTurnCount = 0;
+                    frm.sendFinishMove("~"+Form1.UserName);
                 }
             }
             start = 0;
@@ -392,12 +394,11 @@ namespace BackgammonProject2
                                     moveToArr[where2].Visible = true;
                             }
                         }
-                        if (dice1 == -1 && dice2 == -1 || doubleTurnCount == 4)
-                        {
-                            frm.ChangeCurrentPlayer();
-                            doubleTurnCount = 0;
-                            isDoubleTurn = false;
-                        }
+                        //if (dice1 == -1 && dice2 == -1)
+                        //{
+                        //    frm.ChangeCurrentPlayer();
+                            
+                        //}
                     }
                     else
                     {
@@ -415,6 +416,13 @@ namespace BackgammonProject2
                             if (boardarr[where1].getTriangleStack().Count == 1 || boardarr[where1].getTriangleStack().Count == 0 || (boardarr[where1].getTriangleColor() == playernum && boardarr[where1].getTriangleStack().Count<5))
                                 moveToArr[where1].Visible = true;
                         }
+                        //if (doubleTurnCount == 4)
+                        //{
+                        //    doubleTurnCount = 0;
+                        //    isDoubleTurn = false;
+                        //    frm.ChangeCurrentPlayer();
+                        //}
+
 
                         //doubleTurnCount++;
                         //if (doubleTurnCount == 4)
@@ -423,6 +431,20 @@ namespace BackgammonProject2
                         //    isDoubleTurn = false;
                         //    frm.ChangeCurrentPlayer();
                         //}
+                    }
+                    for (int j = 1; j < 25; j++)
+                    {
+                        if (moveToArr[j].Visible == true)
+                            isThereMoveTo = true;
+                    }
+                    if (isThereMoveTo == false)
+                    {
+                        if (isDoubleTurn == true)
+                        {
+                            doubleTurnCount = 0;
+                            isDoubleTurn = false;
+                        }
+                        frm.sendFinishMove("~" + Form1.UserName);
                     }
                     //howMany1 = int.Parse(pressPic.Tag.ToString().Substring(2));
                     //howMany2 = int.Parse(pressPic.Tag.ToString().Substring(1));
@@ -433,7 +455,7 @@ namespace BackgammonProject2
         public void GetDice(int d1, int d2)
         {
             dice1 = 3;
-            dice2 =3;
+            dice2 = 3;
             if (dice1 == dice2)
                 isDoubleTurn = true;
             if (boardarr[frm.myPlayerNumber + 24].getTriangleStack().Count() !=0)

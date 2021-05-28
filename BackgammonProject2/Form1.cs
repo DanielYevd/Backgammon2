@@ -180,7 +180,8 @@ namespace BackgammonProject2
                     
                     break;
 
-                case '-':ChangeCurrentPlayer();
+                case '~':
+                    ChangeCurrentPlayer(mess);
                     break;
             }
             
@@ -219,19 +220,19 @@ namespace BackgammonProject2
           
         }
 
-        public void ChangeCurrentPlayer()
+        public void ChangeCurrentPlayer(string m)
         {
-            if (currentPlayerNumber == 1)
+            if (m.Contains(allPlayers[1].PlayerName))
             {
                 currentPlayerNumber = 2;
                 lblTurn.Text = allPlayers[2].PlayerName;
             }
-            else
+           else
             {
                 currentPlayerNumber = 1;
                 lblTurn.Text = allPlayers[1].PlayerName;
             }
-                if (UserName == lblTurn.Text)
+            if (UserName == lblTurn.Text)
                 lblThrowDice.Visible = true;
             else
                 lblThrowDice.Visible = false;
