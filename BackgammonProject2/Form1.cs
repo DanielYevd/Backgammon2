@@ -170,13 +170,13 @@ namespace BackgammonProject2
                 case '%'://MessageBox.Show(firstCharInfoRes);
                     firstCharInfoRes=firstCharInfoRes.Substring(0,firstCharInfoRes.IndexOf('\0'));
                     s1 = firstCharInfoRes.Substring(1).Split(' ');
-                    
+
                     if (UserName == s1[0])
-                        b1.moveToFromServer(1, int.Parse(s1[1]), int.Parse(s1[2]));
+                        b1.moveToFromServer(1, int.Parse(s1[1]), int.Parse(s1[2]), int.Parse(s1[3]));
                     //לסדר את התזוזה רגיל 
                     else
                         //,זוזה הפוכה 
-                        b1.moveToFromServer(2, int.Parse(s1[1]),int.Parse(s1[2]));
+                        b1.moveToFromServer(2, int.Parse(s1[1]), int.Parse(s1[2]), int.Parse(s1[3]));
                     
                     break;
 

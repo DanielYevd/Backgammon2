@@ -18,6 +18,7 @@ namespace BackgammonProject2
 {
     public partial class frmConnect : Form
     {
+        int offset = 1;
         public frmConnect()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace BackgammonProject2
         private void frmConnect_Load(object sender, EventArgs e)
         {
             IPAddress[] LocalIPs = Dns.GetHostAddresses(Dns.GetHostName());
-            txtIP.Text = Convert.ToString(LocalIPs[LocalIPs.Length - 1]);
+            txtIP.Text = Convert.ToString(LocalIPs[LocalIPs.Length - offset]);
             // txtIP.Text = "127.0.0.1";
 
         }

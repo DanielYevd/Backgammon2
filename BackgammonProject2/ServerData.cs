@@ -15,7 +15,6 @@ namespace BackgammonProject2
 {
     class ServerData
     {
-
         public Form1 frm;//הגדרת אובייקט של הטופס שבתוכו יתנהל המשחק/תוכנה
         public Thread tcpThd;//טרנד של הלקוח
         public TcpClient tcpclnt;// מאזין של הלקוח
