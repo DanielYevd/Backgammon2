@@ -83,6 +83,7 @@ namespace BackgammonProject2
                 tcount = 1;
                 timer1.Enabled = true;
             }
+            lblThrowDice.Visible = false;
             lblServerInfo.Visible = false;
            
         }
@@ -183,6 +184,10 @@ namespace BackgammonProject2
                 case '~':
                     ChangeCurrentPlayer(mess);
                     break;
+                case '^':
+                    
+                    break;
+                    
             }
             
             //string s;
@@ -297,6 +302,10 @@ namespace BackgammonProject2
         public void sendToServerPressTag(string tag)
         {
             sd.WriteToServer("%" + UserName + " " + tag);
+        }
+        public void sendToServerEaten(string tag)
+        {
+
         }
     }
 }

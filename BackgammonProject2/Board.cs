@@ -182,7 +182,7 @@ namespace BackgammonProject2
                 }
             }
             eatenBlack = new Triangle(1, 1, 25, 0, frm);
-            eatenWhite = new Triangle(1, 1, 26, 0, frm);
+            eatenWhite = new Triangle(1, 100, 26, 0, frm);
             boardarr[25] = eatenBlack;
             boardarr[26] = eatenWhite;
             //רצנו על כל המשולשים שיש לנו בלוח 
@@ -327,7 +327,8 @@ namespace BackgammonProject2
             if (isDoubleTurn == false)
             {
                 if (dice1 == -1 && dice2 == -1)
-                    frm.sendFinishMove("~" + Form1.UserName);
+                    if (Form1.UserName == frm.lblTurn.Text)
+                        frm.sendFinishMove("~" + Form1.UserName);
             }
             else
             {
@@ -335,7 +336,8 @@ namespace BackgammonProject2
                 {
                     isDoubleTurn = false;
                     doubleTurnCount = 0;
-                    frm.sendFinishMove("~"+Form1.UserName);
+                    if (Form1.UserName == frm.lblTurn.Text)
+                        frm.sendFinishMove("~"+Form1.UserName);
                 }
             }
             start = 0;
@@ -365,7 +367,7 @@ namespace BackgammonProject2
                         {
                             if (where1 > 24)
                             {
-                                if (boardarr[24].getTriangleStack().Count == 1 || boardarr[24].getTriangleStack().Count == 0 || (boardarr[24].getTriangleColor() == playernum && boardarr[24].getTriangleStack().Count<5))
+                                if (boardarr[24].getTriangleStack().Count == 1 || boardarr[24].getTriangleStack().Count == 0 || (boardarr[24].getTriangleColor() == playernum && boardarr[24].getTriangleStack().Count <= 5))
                                 {
                                     //if (boardarr[24].getTriangleStack().Count == 1 || boardarr[24].getTriangleStack().Peek().Color == int.Parse(pressPic.Tag.ToString().Substring(0, 0)))
                                     moveToArr[24].Visible = true;
@@ -374,7 +376,7 @@ namespace BackgammonProject2
                             }
                             else
                             {
-                                if (boardarr[where1].getTriangleStack().Count == 1 || boardarr[where1].getTriangleStack().Count == 0 || (boardarr[where1].getTriangleColor() == playernum && boardarr[where1].getTriangleStack().Count<5))
+                                if (boardarr[where1].getTriangleStack().Count == 1 || boardarr[where1].getTriangleStack().Count == 0 || (boardarr[where1].getTriangleColor() == playernum && boardarr[where1].getTriangleStack().Count <= 5))
                                     moveToArr[where1].Visible = true;
                             }
                         }
@@ -382,7 +384,7 @@ namespace BackgammonProject2
                         {
                             if (where2 > 24)
                             {
-                                if (boardarr[24].getTriangleStack().Count == 1 || boardarr[24].getTriangleStack().Count == 0 || (boardarr[24].getTriangleColor() == playernum && boardarr[24].getTriangleStack().Count<5))
+                                if (boardarr[24].getTriangleStack().Count == 1 || boardarr[24].getTriangleStack().Count == 0 || (boardarr[24].getTriangleColor() == playernum && boardarr[24].getTriangleStack().Count <= 5))
                                 {
                                     moveToArr[24].Visible = true;
                                     where2 = 24;
@@ -390,7 +392,7 @@ namespace BackgammonProject2
                             }
                             else
                             {
-                                if (boardarr[where2].getTriangleStack().Count == 1 || boardarr[where2].getTriangleStack().Count == 0 || (boardarr[where2].getTriangleColor() == playernum && boardarr[where2].getTriangleStack().Count<5))
+                                if (boardarr[where2].getTriangleStack().Count == 1 || boardarr[where2].getTriangleStack().Count == 0 || (boardarr[where2].getTriangleColor() == playernum && boardarr[where2].getTriangleStack().Count <= 5))
                                     moveToArr[where2].Visible = true;
                             }
                         }
@@ -404,16 +406,16 @@ namespace BackgammonProject2
                     {
                         if (where1 > 24)
                         {
-                            if (boardarr[24].getTriangleStack().Count == 1 || boardarr[24].getTriangleStack().Count == 0 || (boardarr[24].getTriangleColor() == playernum && boardarr[24].getTriangleStack().Count<5))
+                            if (boardarr[24].getTriangleStack().Count == 1 || boardarr[24].getTriangleStack().Count == 0 || (boardarr[24].getTriangleColor() == playernum && boardarr[24].getTriangleStack().Count <= 5))
                             {
-                                //if (boardarr[24].getTriangleStack().Count == 1 || boardarr[24].getTriangleStack().Peek().Color == int.Parse(pressPic.Tag.ToString().Substring(0, 0)))
+                                //if (boardarr[24].getTriangleStack().Count == 1 || boardarr[24].getTriangleStack().Count == 0 || (boardarr[24].getTriangleColor() == playernum && boardarr[24].getTriangleStack().Count<5))
                                 moveToArr[24].Visible = true;
                                 where1 = 24;
                             }
                         }
                         else
                         {
-                            if (boardarr[where1].getTriangleStack().Count == 1 || boardarr[where1].getTriangleStack().Count == 0 || (boardarr[where1].getTriangleColor() == playernum && boardarr[where1].getTriangleStack().Count<5))
+                            if (boardarr[where1].getTriangleStack().Count == 1 || boardarr[where1].getTriangleStack().Count == 0 || (boardarr[where1].getTriangleColor() == playernum && boardarr[where1].getTriangleStack().Count <= 5))
                                 moveToArr[where1].Visible = true;
                         }
                         //if (doubleTurnCount == 4)
@@ -444,7 +446,8 @@ namespace BackgammonProject2
                             doubleTurnCount = 0;
                             isDoubleTurn = false;
                         }
-                        frm.sendFinishMove("~" + Form1.UserName);
+                        if (Form1.UserName == frm.lblTurn.Text)
+                            frm.sendFinishMove("~" + Form1.UserName);
                     }
                     //howMany1 = int.Parse(pressPic.Tag.ToString().Substring(2));
                     //howMany2 = int.Parse(pressPic.Tag.ToString().Substring(1));
@@ -454,24 +457,42 @@ namespace BackgammonProject2
         }
         public void GetDice(int d1, int d2)
         {
-            dice1 = 3;
-            dice2 = 3;
+            dice1 = d1;
+            dice2 = d2;
+            int i = 1;
             if (dice1 == dice2)
                 isDoubleTurn = true;
-            if (boardarr[frm.myPlayerNumber + 24].getTriangleStack().Count() !=0)
+            if (boardarr[frm.myPlayerNumber + 24].getTriangleStack().Count() != 0)
             {
-                for (int i = 1; i < 25; i++)
-                    if (boardarr[i].getTriangleStack() == null || boardarr[i].getTriangleColor()==frm.myPlayerNumber)
-                        boardarr[i].getTriangleStack().Push(boardarr[frm.myPlayerNumber + 24].getTriangleStack().Pop());
-                if (isDoubleTurn == true)
-                    doubleTurnCount++;
-                else
+                while(i<25)
                 {
-                    if (dice1 < dice2)
-                        dice1 = -1;
-                    else
-                        dice2 = -1;
+                    if (boardarr[i].getTriangleStack().Count == 0 || boardarr[i].getTriangleColor() == frm.myPlayerNumber)
+                        frm.sendToServerEaten('^' + " " + (frm.myPlayerNumber + 24) +" " + i);
                 }
+                //while(i<25)
+                //{
+                //    if (boardarr[i].getTriangleStack().Count == 0 || boardarr[i].getTriangleColor() == frm.myPlayerNumber)
+                //    {
+                        
+                        
+                //            boardarr[i].Add(frm.myPlayerNumber);
+                //            boardarr[frm.myPlayerNumber + 24].Remove();
+                //            i = 25;
+                        
+                //    }
+                //    else
+                //        i++;
+                //}
+                           
+                //if (isDoubleTurn == true)
+                //    doubleTurnCount++;
+                //else
+                //{
+                //    if (dice1 < dice2)
+                //        dice1 = -1;
+                //    else
+                //        dice2 = -1;
+                //}
             }
         }
     }

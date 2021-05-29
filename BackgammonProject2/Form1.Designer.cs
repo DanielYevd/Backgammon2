@@ -331,7 +331,7 @@
         private System.Windows.Forms.Label lblPlayer2;
         private System.Windows.Forms.PictureBox picPlayer1;
         private System.Windows.Forms.PictureBox picPlayer2;
-        private System.Windows.Forms.Label lblTurn;
+        public System.Windows.Forms.Label lblTurn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
     }
