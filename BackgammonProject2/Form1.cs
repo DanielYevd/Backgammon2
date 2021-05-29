@@ -31,6 +31,7 @@ namespace BackgammonProject2
         {
             InitializeComponent();
             myDelegate = new deleForm(MyProtocol);
+           
         }
         Board b1;
 
@@ -99,7 +100,14 @@ namespace BackgammonProject2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            b1 = new Board(this, 83, 60, 2);
+            if(UserName == lblTurn.Text)
+            {
+                
+                sendFinishMove("~" + UserName);
+
+            }
+            
+                
         }
 
         public int currentPlayerNumber = 1;

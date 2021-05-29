@@ -173,6 +173,16 @@ namespace BackgammonProject2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap instructionsPic {
+            get {
+                object obj = ResourceManager.GetObject("instructionsPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pic0 {
             get {
                 object obj = ResourceManager.GetObject("pic0", resourceCulture);
@@ -186,6 +196,36 @@ namespace BackgammonProject2.Properties {
         internal static System.Drawing.Bitmap pic1 {
             get {
                 object obj = ResourceManager.GetObject("pic1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap picInstructions {
+            get {
+                object obj = ResourceManager.GetObject("picInstructions", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap picPlay {
+            get {
+                object obj = ResourceManager.GetObject("picPlay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap playPic {
+            get {
+                object obj = ResourceManager.GetObject("playPic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +256,16 @@ namespace BackgammonProject2.Properties {
         internal static System.Drawing.Bitmap server_bg {
             get {
                 object obj = ResourceManager.GetObject("server_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap welcomePic {
+            get {
+                object obj = ResourceManager.GetObject("welcomePic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -73,8 +73,9 @@ namespace BackgammonProject2
         }
         public int getTriangleColor()
         {
-            
-            return this.stack.Peek().Color;
+           
+                return this.stack.Peek().Color;
+           
         }
 
         internal Stack<Cell> getTriangleStack()
